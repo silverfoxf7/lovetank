@@ -1,0 +1,53 @@
+<table class "profile" summary="Profile Information">
+	<tr>
+		<td class="main">
+			<h1>
+				<%= gravatar_for @user %>
+				<%= @user.name %>
+			</h1>
+			<%= render 'follow_form' if signed_in? %>
+                        <table class "userprofile" summary="user profile">
+
+        <% if @user.account_type == 1 %>
+          <%= render 'attorney_profile', :f => @user %>
+        <% elsif @user.account_type == 2 %>
+          <%= render 'agency_profile', :f => @user %>
+        <% elsif @user.account_type == 3 %>
+          <%= render 'lawfirm_profile', :f => @user %>
+        <% else %>
+          <%= render 'client_profile', :f => @user %>
+        <% end %>
+
+</table>
+
+      
+        <%#*<a href="<%= billable_jobs_user_path(@user) %>">%>
+          <%#*<span id="billable_jobs" class="stat">%>
+            <%#= @user.billable_jobs.count %>
+            <%#*billable jobs%>
+          <%#*</span>%>
+        <%#*</a>%>
+      
+
+        <% if @user.jobposts.any? %>
+                <table class="jobposts" summary="User jobposts">
+                  <h3>Your Projects</h3>
+                  <%= render @jobposts %>
+
+                </table>
+                <%= will_paginate @jobposts %>
+        <% end %>
+
+        <% if @user.microposts.any? %>
+                <table class="microposts" summary="User microposts">
+                        <%= render @microposts %>
+                        <!-- remember that render requires a _partial.html.erb -->
+                </table>
+                <%= will_paginate @microposts %>
+        <% end %>
+			
+		</td>	
+	</tr>
+</table>
+
+

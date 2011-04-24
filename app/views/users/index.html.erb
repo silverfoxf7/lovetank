@@ -1,0 +1,25 @@
+<h1>All Users</h1>
+
+  Sort By:
+  <%= sort_link @user_search, :name %> |
+  <%= sort_link @user_search, :location %> |
+  <%= sort_link @user_search, :rating %> |
+  <%= sort_link @user_search, :jobs_completed %> | 
+  <%= sort_link @user_search, :status %> |</br>
+
+<% if @users.any? %>
+    <div class="bidfeed">
+      <%= render :partial => 'shared/abbrev_user', :collection => @users %>
+    </div>
+<% else %>
+    <div class="bidfeed">
+      <span class="no_results">
+        <p>We're sorry but there are no results.</p>
+      </span>
+    </div>
+    <% end %>
+<div class="user_searchbox round">
+  <%= render 'shared/usersearch' %>
+</div>
+
+<%= will_paginate %>

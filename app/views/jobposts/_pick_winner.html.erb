@@ -1,0 +1,15 @@
+	<div id="follow_form">
+		<% if @job.winner?(@bidders.first) %>
+			<%= render 'fire' %>
+		<% else %>
+			<%= render 'hire' %>
+		<% end %>
+	</div>
+
+  <%#*def winner?(worker)%>
+    <%#*self.winationships.find_by_worker_id(worker)%>
+
+  <%#*def pick_winner!(worker)%>
+    <%#*self.winationships.create!(:worker_id => worker.id)%>
+
+  <%#*def pick_loser!(worker)%>

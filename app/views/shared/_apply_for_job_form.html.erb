@@ -1,0 +1,15 @@
+<%= form_for(@bid) do |f| %> 
+  <%= render 'shared/error_messages', :object => f.object %>
+    <div class="field">
+      <%#= f.label :message %>
+      <%= f.tinymce :message %>
+      <%#*IMPLEMENT THIS TABLE-LESS MODEL
+          http://asciicasts.com/episodes/193-tableless-model%>
+      <%= f.hidden_field :jobpost_id, :value => params[:id] %>
+    </div>
+	
+    <div class="actions">
+      <%= f.submit "Submit" %>
+    </div>
+
+<% end %>

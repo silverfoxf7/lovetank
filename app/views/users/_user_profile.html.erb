@@ -1,0 +1,49 @@
+
+<tr>
+  <td class="user_profile">
+  
+    <span class="real_name"><strong>Full Name:</strong>
+      <%= @user.real_name %>
+    </span>
+
+    <span class="status"><strong>Status:</strong>
+      <% if @user.status == 1 %>
+        Available
+      <% else %>
+        Not Available
+      <% end %>
+    </span>
+
+    <span class="skills"><strong>Skills:</strong>
+      <%= @user.skills %>
+    </span>
+
+    <span class="location"><strong>Location:</strong>
+      <%= @user.location %>
+    </span>
+
+    <span class="rating"><strong>Rating:</strong>
+      <%= @user.rating %>
+    </span>
+
+    <span class="jobs_completed"><strong>Jobs Completed:</strong>
+      <%= @user.jobs_completed %>
+    </span>
+
+    <span class="tagline"><strong>Tagline:</strong>
+      <%= @user.tagline %>
+    </span>
+
+    <span class="topskills"><strong>Top 3 Skills:</strong>
+        <ul>
+          <li><%= @user.skill1 %></li>
+          <li><%= @user.skill2 %></li>
+          <li><%= @user.skill3 %></li>
+        </ul>
+    </span>
+
+    <span class="resume"><strong>Resume:</strong>
+      <%= @user.resume %>
+    </span>
+  </td>
+</tr>

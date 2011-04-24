@@ -1,0 +1,23 @@
+<%= form_for @jobpost, :url => { :action => "preview" } do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :title %>: <br /><%= f.text_field :title %> <br />
+    <%= f.label :location %>: <br /> <%= f.text_field :location %> <br />
+    <%= f.label :email, "Reply-To Email" %>: <br /> <%= f.text_field :email %> <br />
+    <%= f.label :poster %>: <br /> <%= @jobpost.poster = current_user.name %>
+    			     <%= f.hidden_field :poster %> <br />
+    <%= f.label :work_type %>: <br /> <%= f.text_field :work_type %> <br />
+    <%= f.label :max_budget %>: <br /> <%= f.text_field :max_budget %> <br />
+
+    <%=  f.check_box :overtime %> Overtime <br/>
+  
+    <%= f.label :start_date, "Start Date" %>:  <br /><%= f.text_field :start_date %> <br />
+    <%= f.label :duration, "Duration (number of weeks)" %>:  <br /><%= f.text_field :duration %> <br />
+    <%= f.label :work_intensity, "Intensity (hours per week)" %>:  <br /><%= f.text_field :work_intensity %> <br />
+    <%= f.label :skills %>:  <br /><%= f.text_field :skills %> <br />
+    <%= f.label :description %>: <br /><%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

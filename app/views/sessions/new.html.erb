@@ -1,0 +1,30 @@
+<div id="body_container">
+    <!--project page box starts-->
+  <div id="inner_page">
+
+<h1>Sign In</h1>
+
+<%= form_for(:session, :url => sessions_path) do |f| %>
+<!-- whereas "form_for(@user)" allows Rails to infer that the action of the form should be to POST to the URL /users, in the case of sessions we need to indicate both the name of the resource and the appropriate URL -->
+	
+	
+	<div class="field">
+		<%= f.label :email %>  <br />
+		<%= f.text_field :email %>
+	</div>
+
+	<div class="field">
+		<%= f.label :password %>  <br />
+		<%= f.password_field :password %>
+	</div>
+	
+	<div class="actions">
+		<%= f.submit "Sign Up" %>  
+	</div>
+
+<% end %>
+
+<p> New User? <%= link_to "Sign Up Now!", signup_path %> </p>
+
+	</div>
+    </div>

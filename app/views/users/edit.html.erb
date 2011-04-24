@@ -1,0 +1,29 @@
+<!-- Using a Rails Form Helper -->
+
+<center><h1>Update Your Profile</h1></center>
+
+<%= form_for(@user) do |f| %>
+
+        <% if @user.account_type == 1 %>
+          <%= render 'attorney_fields', :f => f %>
+        <% elsif @user.account_type == 2 %>
+          <%= render 'agency_fields', :f => f %>
+        <% elsif @user.account_type == 3 %>
+          <%= render 'lawfirm_fields', :f => f %>
+        <% else %>
+          <%= render 'client_fields', :f => f %>
+        <% end %>
+  
+	<div class="actions">
+		<%= f.submit "Update" %>  
+	</div>
+
+<% end %>
+<!-- note that the second embedded Ruby does not have = sign ...-->
+
+<div> 
+	<%= gravatar_for @user %>
+	<a href="http://gravatar.com/emails" target=_blank>change</a>
+</div>
+
+

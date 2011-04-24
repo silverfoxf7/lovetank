@@ -1,0 +1,21 @@
+<!-- Using a Rails Form Helper -->
+
+<h1>Edit User</h1>
+
+<%= form_for(@user) do |f| %>
+
+	<%= render 'fields', :f => f %>
+
+	<div class="actions">
+		<%= f.submit "Update" %>  
+	</div>
+
+<% end %>
+<!-- note that the second embedded Ruby does not have = sign ...-->
+
+<div> 
+	<%= gravatar_for @user %>
+	<a href="http://gravatar.com/emails" target=_blank>change</a>
+</div>
+
+

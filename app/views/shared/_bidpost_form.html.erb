@@ -1,0 +1,12 @@
+<%= form_for(@bid) do |f| %> 
+  <%= render 'shared/error_messages', :object => f.object %>
+    <div class="field">
+      <%= f.label :amount %> $<%= f.text_field :amount, :size => 5 %> <br />
+      <%= f.hidden_field :jobpost_id, :value => params[:id] %>
+    </div>
+	
+    <div class="actions">
+      <%= f.submit "Submit" %>
+    </div>
+
+<% end %>

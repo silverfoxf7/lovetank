@@ -1,0 +1,89 @@
+<center><h3>Complete Your Transaction for</h3></center>
+<center><h3><%= @job.title %></h3></center>
+                                
+    
+<table class="jobposts" summary="User jobposts">
+  <tr>
+        <td class="jobpost">          
+          <span class="location"><strong>Location: </strong>
+                                  <%= @job.location %></span>
+
+          <span class="poster"><strong>Posted by: </strong>
+                             <%= link_to @job.user.name,
+                                           @job.user %>
+          </span>
+
+          <span class="work_type"><strong>Work Type: </strong>
+                      <%= @job.work_type %></span>
+
+          <span class="max_budget"><strong>Max Bid: </strong>$
+                      <%= @job.max_budget %></span>
+
+          <span class="overtime"><strong>Pays Overtime: </strong>
+                      <%= @job.overtime ? "Yes" : "No" %>
+          </span>
+        </td>
+        <td class="jobpost">
+          <span class="start_date"><strong>Start Date:  </strong>
+                      <%= @job.start_date ?
+                      @job.start_date.strftime("%a, %b. %d, %Y") : "" %>
+          </span>
+
+          <span class="duration"><strong>Project Duration: </strong>
+                      <%= @job.duration %> weeks
+          </span>
+
+          <span class="work_intensity"><strong>Intensity: </strong>
+                      <%= @job.work_intensity %> hours per week
+          </span>
+
+          <span class="skills"><strong>Skills Sought: </strong>
+                      <%= @job.skills %></span>
+
+          <span class="timestamp">Posted
+                <%= time_ago_in_words(@job.created_at) %> ago.
+          </span>
+        </td>
+      </tr>
+</table>
+
+<table class="jobposts" summary="User jobposts">
+  <tr>
+        <td class="jobpost">
+          <span class="description">
+            <strong>Description: </strong><%= @job.description %>
+          </span>
+        </td>
+  </table>
+
+<% if signed_in? %>
+
+    <% if @job.user_id == current_user.id %>
+      <h3>You chose the following attorneys:</h3>
+
+    <% if @winners.any? %>
+      <div class="escrow">
+        <%= render :partial => 'shared/finish_transaction', :collection => @winners %><br/>
+      </div>
+      <p></p>
+      <p>Please escrow <b><%= number_to_currency(@amount_owed) %></b>
+      based on the expected number of hours you have alloted for your project.
+      The money will be released to the contract attorneys pending your
+      approval of their time sheets. </p>
+      <p>Based on our commission of
+      <b><%= number_to_percentage(@commission*100, :precision => 2) %></b>,
+      we will take
+      <b><%= number_to_currency(@collectible_amount) %> </b>
+      from the escrowed amount.</p>
+
+      <%= render 'shared/ach_form' %>
+      
+    <% else %>
+          <div class="bidfeed">
+          <span class="no_results">
+            <p>We're sorry but you have not selected any winners.</p>
+          </span>
+        </div>
+    <% end %>
+  <% end %>
+<% end %>

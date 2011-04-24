@@ -1,0 +1,17 @@
+<%= form_for @test do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :title, "Full Name" %>: <br /><%= f.text_field :title %> <br />
+    <%= f.label :location, "Account Number" %>: <br />
+                  <%= f.text_field :location %> <br />
+    <%= f.label :work_type, "Routing Number" %>: <br />
+                  <%= f.text_field :work_type %> <br /></div>
+  <div class="actions">
+    <%#= f.submit "Submit" %>
+    <a href="<%= jobpost_path(params[:id]) %>">
+      Submit
+    </a>
+  </div>
+<% end %>
+
+<%# This is a sample form where the payment processing will take place.%>

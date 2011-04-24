@@ -1,0 +1,25 @@
+<tr>
+  <td class="jobpost">
+
+    <span class="title">Title:
+    <%= link_to jobpost.title,
+                jobpost_path(jobpost.id) %></span>
+    <span class="location">Location:  <%= jobpost.location %></span>
+    <span class="poster">Posted by:  <%= jobpost.poster %></span>
+    <span class="work_type">Type:  <%= jobpost.work_type %></span>
+    <span class="max_budget">Max Budget:  $<%= jobpost.max_budget %></span>
+    <span class="duration">Duration:  <%= jobpost.duration %></span>
+    <span class="skills">Skills:  <%= jobpost.skills %></span>
+    <span class="description">Description:  <%= jobpost.description %></span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(jobpost.created_at) %> ago.
+    </span>
+    
+    	<% if current_user?(@user) %>
+
+	    <%= link_to "Delete Post", jobpost, :method => :delete,
+	                                     :confirm => "You sure?",
+	                                     :title => jobpost.title %>
+        <% end %>
+  </td>
+</tr>

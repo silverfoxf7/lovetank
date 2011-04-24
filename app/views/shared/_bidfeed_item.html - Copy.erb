@@ -1,0 +1,32 @@
+<tr>  
+  <td class="bids">
+      <span class="bid_name">
+        <%= link_to User.find(bidfeed_item.user_id).name,
+                            User.find(bidfeed_item.user_id) %>
+      </span>
+  </td>
+  <td class="bids">
+      <span class="bid_amount">
+        $<%= bidfeed_item.amount %>
+      </span>
+  </td>
+  <td class="bids">
+      <span class="bid_location">
+        <%= User.find(bidfeed_item.user_id).location %>
+      </span>
+  </td>
+
+  <td class="bids">
+      <span class="bid_rating">
+        <%= User.find(bidfeed_item.user_id).rating ?
+            User.find(bidfeed_item.user_id).rating : "--" %>
+      </span>
+  </td>
+
+  <td class="bids">
+      <span class="bid_rating">
+        <%= User.find(bidfeed_item.user_id).jobs_completed ?
+            User.find(bidfeed_item.user_id).jobs_completed : "--" %>
+      </span>
+  </td>
+  </tr>

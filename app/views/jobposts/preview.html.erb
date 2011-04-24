@@ -1,0 +1,23 @@
+<h3>Preview Your Project</h3>
+    
+<span class="title"><strong>Title: </strong>
+                                  <%= @job.title %></span>
+<%= render 'shared/jobpost_details' %>
+
+<%= form_for @job do |f| %>
+	<%= f.hidden_field :title %>
+	<%= f.hidden_field :location %>
+	<%= f.hidden_field :email %>
+	<%= f.hidden_field :poster %>
+	<%= f.hidden_field :work_type %>
+	<%= f.hidden_field :max_budget %>
+	<%= f.hidden_field :overtime %>
+	<%= f.hidden_field :start_date %>
+	<%= f.hidden_field :duration %>
+	<%= f.hidden_field :work_intensity %>
+	<%= f.hidden_field :skills %>
+	<%= f.hidden_field :description %>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<div class="bidtable">
+
+  <span class="name"><br><b>Username</b> <br />
+        <%= finish_transaction.name %><br />
+      </span>  
+
+      <span class="amount"><br><b>Hourly Rate</b></br>
+
+<%= number_to_currency(Bid.where({:jobpost_id => params[:id],
+                        :user_id => finish_transaction.id}).
+                        first.amount) %>
+      </span>
+      <span class="amount"><br><b>Expected Hrs/Wk</b></br>
+        <%= @job.work_intensity %>
+      </span>
+
+      <span class="amount"><br><b>Approx. Weekly Rate</b></br>
+        <%= number_to_currency(Bid.where({:jobpost_id => params[:id],
+                        :user_id => finish_transaction.id}).
+                        first.amount*@job.work_intensity)  %>
+      </span>
+
+      <span class="amount"><br><b>Commission</b></br>
+        <%= number_to_percentage(@commission*100, :precision => 0) %>
+      </span>    
+  
+  </div>

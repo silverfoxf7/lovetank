@@ -1,0 +1,22 @@
+<!-- Using a Rails Form Helper -->
+<!--body container starts-->
+<div id="body_container">
+    <!--project page box starts-->
+  <div id="project_page">
+
+<h1 class="title_header">Sign Up</h1>
+
+<h1>Sign Up</h1>
+
+<%= form_for(@user) do |f| %>
+
+	<%= render 'fields', :f => f %>	
+
+	<div class="actions">
+		<%= f.submit "Sign Up" %>  
+	</div>
+
+<% end %>
+<!-- note that the second embedded Ruby does not have = sign ...-->
+  </div>
+</div>

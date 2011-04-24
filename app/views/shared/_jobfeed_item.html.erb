@@ -1,0 +1,64 @@
+<tr>
+  <td class="jobpost">
+  
+    <span class="title"><strong>Title: </strong>
+      <strong><%= link_to jobfeed_item.title,
+                                    jobpost_path(jobfeed_item.id) %></strong>
+    </span>
+
+    <span class="location"><strong>Location: </strong>
+                            <%= jobfeed_item.location %></span>
+
+    <span class="poster"><strong>Posted by: </strong>
+                       <%= link_to jobfeed_item.user.name,
+                                     jobfeed_item.user %>
+    </span>
+
+    <span class="work_type"><strong>Work Type: </strong>
+                <%= jobfeed_item.work_type %></span>
+
+    <span class="max_budget"><strong>Max Bid: </strong>$
+                <%= jobfeed_item.max_budget %></span>
+
+    <span class="overtime"><strong>Pays Overtime: </strong>
+                <%= jobfeed_item.overtime ? "Yes" : "No" %>
+    </span>
+
+    <span class="start_date"><strong>Start Date:  </strong>
+                <%= jobfeed_item.start_date ? 
+                jobfeed_item.start_date.strftime("%a, %b. %d, %Y") : "" %>
+    </span>
+
+    <span class="duration"><strong>Project Duration: </strong>
+                <%= jobfeed_item.duration %> weeks
+    </span>
+
+    <span class="work_intensity"><strong>Intensity: </strong>
+                <%= jobfeed_item.work_intensity %> hours per week
+    </span>
+
+    <span class="skills"><strong>Skills Sought: </strong>
+                <%= jobfeed_item.skills %></span>
+
+    <span class="description">
+      <strong>Description: </strong><%= jobfeed_item.description %>
+    </span>
+
+    <span class="timestamp">Posted
+          <%= time_ago_in_words(jobfeed_item.created_at) %> ago.
+    </span>
+
+	<% if current_user?(jobfeed_item.user) %>
+
+	    <%= link_to "Delete Post", jobfeed_item, :method => :delete,
+	                                     :confirm => "You sure?",
+	                                     :title => jobfeed_item.title %>
+
+  </td>
+
+  
+  <td class="gravatar">
+    <%= link_to gravatar_for(jobfeed_item.user), jobfeed_item.user %>
+   </td>
+  <% end %>
+</tr>

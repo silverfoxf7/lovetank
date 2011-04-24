@@ -1,0 +1,14 @@
+<%#= form_for(current_user.relationships.build(:followed_id => @user.id),
+     :remote => true) do |f| %>
+
+<%= form_for @job.winationships.build(:worker_id => bidder.id) do |f| %>
+<!-- remote allows for AJAX  -->
+	
+          <%= f.hidden_field :worker_id %>
+          <%= f.hidden_field :job_id %>
+	<!-- the follow/unfollow form doesn’t have any content other than the button,
+	but it still needs to send the followed_id, which we accomplish with hidden_field -->
+	<div class="actions">
+        <%= f.submit "Hire" %>
+        </div>
+<% end %>

@@ -1,0 +1,11 @@
+<%= form_for(current_user.relationships.build(:followed_id => @user.id), 
+											  :remote => true) do |f| %>
+											<!-- remote allows for AJAX  -->
+	 
+	<div><%= f.hidden_field :followed_id %>
+	<!-- the follow/unfollow form doesn’t have any content other than the button, 
+	but it still needs to send the followed_id, which we accomplish with hidden_field -->
+
+	<div class="actions"><%= f.submit "Follow" %></div>
+
+<% end %>

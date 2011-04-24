@@ -1,0 +1,55 @@
+<table class="jobposts" summary="User jobposts">
+     <tr>
+        <td class="jobpost">          
+          <span class="location"><strong>Location: </strong>
+                                  <%= @job.location %></span>
+
+          <span class="poster"><strong>Posted by: </strong>
+                             <%= link_to @job.user.name,
+                                           @job.user %>
+          </span>
+
+          <span class="work_type"><strong>Work Type: </strong>
+                      <%= @job.work_type %></span>
+
+          <span class="max_budget"><strong>Max Bid: </strong>$
+                      <%= @job.max_budget %></span>
+
+          <span class="overtime"><strong>Pays Overtime: </strong>
+                      <%= @job.overtime ? "Yes" : "No" %>
+          </span>
+        </td>
+        <td class="jobpost">
+          <span class="start_date"><strong>Start Date:  </strong>
+                      <%= @job.start_date ?
+                      @job.start_date.strftime("%a, %b. %d, %Y") : "" %>
+          </span>
+
+          <span class="duration"><strong>Project Duration: </strong>
+                      <%= @job.duration %> weeks
+          </span>
+
+          <span class="work_intensity"><strong>Intensity: </strong>
+                      <%= @job.work_intensity %> hours per week
+          </span>
+
+          <span class="skills"><strong>Skills Sought: </strong>
+                      <%= @job.skills %></span>
+
+			<% if @job.created_at %>
+          <span class="timestamp">Posted
+                <%= time_ago_in_words(@job.created_at) %> ago.
+          </span>
+		  <% end %>
+        </td>
+      </tr>
+</table>
+
+<table class="jobposts" summary="User jobposts">
+  <tr>
+        <td class="jobpost">
+          <span class="description">
+            <strong>Description: </strong><%= @job.description %>
+          </span>
+        </td>
+</table>

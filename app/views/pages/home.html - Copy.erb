@@ -1,0 +1,32 @@
+<% if signed_in? %>
+
+	<table class="font" summary="For signed-in users">
+		<tr>
+			<td class "main">
+				<h1 class="jobpost">Post a Project</h1>
+				<%= render 'shared/jobpost_form'%>
+				<%= render 'shared/jobfeed' %>
+				</br>
+<!-- The "if false" method is a way of commenting html.erb files -->
+				<% if false %>	<h1 class="micropost">What's up?</h1>
+					<%= render 'shared/micropost_form'%>
+					<%= render 'shared/feed' %> 
+				<% end %>
+<!--  END EXAMPLE -->
+			</td>	
+			<td class = "sidebar round">
+				<%= render 'shared/user_info' %>
+				<%= render 'shared/stats' %>
+			</td>
+		</tr>
+	</table>
+
+<% else %>
+<h1>Sample App</h1>
+<p>
+	This is the home page for the PLEA application.
+</p>
+
+<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+
+<% end %>

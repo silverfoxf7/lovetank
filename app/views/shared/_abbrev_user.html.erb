@@ -1,0 +1,34 @@
+
+<div class="bidtable">
+    <span class="name">
+      <br><b>User Name </b></br>
+        <%= link_to abbrev_user.name, abbrev_user %>
+    </span>
+
+    <span class="location">
+      <br><b>Location</b></br>
+        <%= abbrev_user.location %></span>
+
+    <span class="rating">
+      <br><b>Rating</b></br>
+      <%#= abbrev_user.rating %>
+      <%= (1+rand(10)) %>
+    </span>
+
+    <span class="jobs_completed">
+      <br><b>No. Jobs</b></br>
+      <%#= abbrev_user.jobs_completed %>
+      <%= (1+rand(30)) %>
+    </span>
+
+      <% if abbrev_user.status == 1 %>
+    <span class="yesstatus">
+      <strong>Available</strong></span>
+      <% else %>
+        <span class="nostatus">Unavailable</span>
+      <% end %>
+
+    <span class="tagline"><b>Tagline:</b> <%= abbrev_user.tagline %></span>
+
+</div>
+

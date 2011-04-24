@@ -1,0 +1,34 @@
+<% if @jobfeed_items.any? %>
+     <div id="jq_jobfeed">
+      <table class="sort_jobs">
+          <tr>
+            <td>Sort By:</td>
+            <td><%= sort_link @search, :title, "Title" %></td>
+            <td><%= sort_link @search, :location, "Location" %></td>
+            <td><%= sort_link @search, :poster, "Posted By" %></td>
+            <td><%= sort_link @search, :work_type, "Work Type" %></td>
+            <td><%= sort_link @search, :max_budget, "Max Bid" %></td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td></td>
+            <td><%= sort_link @search, :work_intensity, "Intensity" %></td>
+            <td><%= sort_link @search, :start_date, "Start Date" %></td>
+            <td><%= sort_link @search, :duration, "Duration" %></td>
+            <td><%= sort_link @search, :skills, "Skills" %></td>
+            <td><%= sort_link @search, :created_at, "Posted Date" %></td>
+          </tr>
+      </table>
+     </div>
+
+  <table class="jobposts" summary="User jobposts">
+    <%= render :partial => 'shared/jobfeed_item', :collection => @jobfeed_items %>
+  </table>
+  
+  <%= will_paginate @jobfeed_items %>
+
+<% else %>
+        <p>
+          We're sorry but there are no results.
+        </p>
+<% end %>

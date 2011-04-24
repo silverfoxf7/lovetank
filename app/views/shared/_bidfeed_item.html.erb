@@ -1,0 +1,30 @@
+<div class="bidtable">
+      <span class="name"><br><b>Username</b></br>
+        <%= link_to User.find(bidfeed_item.user_id).name,
+                            User.find(bidfeed_item.user_id) %>
+      </span>  
+
+      <span class="amount"><br><b>Amount</b></br>
+        $<%= bidfeed_item.amount %>
+      </span>
+  
+      <span class="location"><br><b>Location</b></br>
+        <%= User.find(bidfeed_item.user_id).location %>
+      </span>
+   
+      <span class="rating"><br><b>Rating</b></br>
+        <%= User.find(bidfeed_item.user_id).rating ?
+            User.find(bidfeed_item.user_id).rating : "--" %>
+      </span>
+ 
+      <span class="jobs_completed"><br><b>No. Jobs</b></br>
+        <%= User.find(bidfeed_item.user_id).jobs_completed ?
+            User.find(bidfeed_item.user_id).jobs_completed : "--" %>
+      </span> 
+
+    <span class="tagline"><b>Tagline:</b> 
+        <%= User.find(bidfeed_item.user_id).tagline %>
+    </span>
+
+
+  </div>

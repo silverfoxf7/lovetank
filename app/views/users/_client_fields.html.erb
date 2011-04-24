@@ -1,0 +1,55 @@
+<%= render 'shared/error_messages', :object => f.object %>
+
+<div class="field">
+        <b>Account Type:</b> Client <br />
+</div>
+
+<div class="field">
+	<%= f.label :name, "Username" %>  <br />
+	<%= f.text_field :name %>
+</div>
+
+<div class="field">
+	<%= f.label :email %>  <br />
+	<%= f.text_field :email %>
+</div>
+
+<div class="field">
+	<%= f.label :password %>  <br />  
+	<%= f.password_field :password %>  
+	<!-- cannot use f.text_field because it shows password when typing -->
+</div>	
+
+<div class="field">
+	<%= f.label :password_confirmation, "Confirm Password" %>  <br />
+	<%= f.password_field :password_confirmation %>
+</div>
+
+<div class="field">
+	<%= f.label :real_name, "Company Name" %>  <br />
+	<%= f.text_field :real_name %>
+</div>
+
+<div class="field">
+	<%= f.label :skills, "What kind of attorneys are you looking for?"%>
+        <br />
+	<%= f.text_area :skills %>
+</div>
+
+<div class="field">
+	<%= f.label :location, "Please enter your ZIP code" %>  <br />
+	<%= f.text_field :location %>
+</div>
+
+<div class="field">
+	<%= f.label :tagline, "Enter a short tagline about your business" %>
+        <br />
+	<%= f.text_area :tagline %>
+</div>
+
+<div class="field">
+	<%= f.label :resume, "Insert Bio" %>  <br />
+	<%= f.text_area :resume %>
+</div>
+
+

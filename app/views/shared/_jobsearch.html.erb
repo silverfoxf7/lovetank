@@ -1,0 +1,34 @@
+
+    <% form_for :search, @search, :html => {:method => :get} do |f| %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+
+        <%= f.label :title_contains, "Title" %><br />
+        <%= f.text_field :title_contains %> <br />
+
+        <%= f.label :location_contains, "Location" %><br />
+        <%= f.text_field :location_contains %><br />
+
+        <%= f.label "Max Bid" %><br />
+        <%= f.label :max_budget_gte, "From" %>
+        <%= f.text_field :max_budget_gte, :size => 3 %>
+        <%= f.label :max_budget_lte, "to" %>
+        <%= f.text_field :max_budget_lte, :size => 3 %><br />
+
+        <%= f.label :poster_contains, "Posted by" %><br />
+        <%= f.text_field :poster_contains %><br />
+
+        <%= f.label :description_contains, "Description" %><br />
+        <%= f.text_field :description_contains %><br />
+
+        <%= f.label :skills_contains, "Skills" %><br />
+        <%= f.text_field :skills_contains %><br />
+        
+        <%= f.label :description_contains, "Description" %><br />
+        <%= f.text_field :description_contains %><br />
+
+        <%= f.label :title_or_location_or_poster_or_description_contains, "Any Keyword" %><br />
+        <%= f.text_field :title_or_location_or_poster_or_description_contains %><br />
+
+      <p class="button"><%= f.submit "Search" %></p>
+  <% end %>

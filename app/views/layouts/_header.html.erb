@@ -1,0 +1,41 @@
+  <!--header starts-->
+  <div id="header">
+    <!--top link starts-->
+    <div class="top_link">
+      <div class="login_area"> <span class="left"></span>
+        <ul>
+<% if signed_in? %>
+          <li class="active">
+            <%= link_to "PROFILE", user_path(current_user) %>
+          </li>
+          <li class="last">
+            <%= link_to "LOG OUT", signout_path %>
+          </li>
+<% else %>
+          <li class="active">
+            <%= link_to "REGISTER", signup_path %>
+          </li>
+          <li class="last">
+            <%= link_to "LOG IN", signin_path %>
+          </li>
+<% end %>
+        </ul>
+        <span class="right"></span> </div>
+    </div>
+    <!--top link ends-->
+    <div class="bottom_row">
+      <div class="logo"><img src="images/logo.png" alt="" /></div>
+      <!--menu starts-->
+      <div id="menu">
+        <ul>
+          <li class="active"><a href="<%= root_path %>" ><span>Home</span></a></li>
+          <li><a href="<%= projects_path %>" ><span> Find Project</span></a></li>
+          <li><a href="<%= new_jobpost_path %>"><span>Post Project</span></a></li>
+          <li><a href="<%= about_path %>"><span>About us</span></a></li>
+          <li class="last"><a href="<%= contact_path %>"><span>Contact</span></a></li>
+        </ul>
+      </div>
+      <!--menu ends-->
+    </div>
+  </div>
+  <!--header ends-->

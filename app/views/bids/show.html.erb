@@ -1,0 +1,7 @@
+<center><h1>Showing Bids</h1></center>
+
+  <table class="jobposts" summary="User jobposts">
+    <%= render :partial => 'shared/bidfeed_item', :collection => @bidfeed_items %>
+  </table>
+
+  <%= will_paginate @bidfeed_items %>

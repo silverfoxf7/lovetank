@@ -1,0 +1,49 @@
+
+    <% form_for :search, @user_search, :html => {:method => :get} do |f| %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+
+        <%= f.label :name_contains, "Name" %><br />
+        <%= f.text_field :name_contains %> <br />
+
+        <%= f.label :location_contains, "Location" %><br />
+        <%= f.text_field :location_contains %><br />
+
+        <strong>Rating</strong><br/>
+        <%= f.label :rating_gte, "Min" %>
+        <%= f.text_field :rating_gte, :size => 3 %>
+        <%= f.label :rating_lte, "Max" %>
+        <%= f.text_field :rating_lte, :size => 3 %><br />
+
+        <strong>No. Jobs Completed</strong><br/>
+        <%= f.label :jobs_completed_gte, "From" %>
+        <%= f.text_field :jobs_completed_gte, :size => 3 %>
+        <%= f.label :jobs_completed_lte, "to" %>
+        <%= f.text_field :jobs_completed_lte, :size => 3 %><br />
+
+        <%= f.label :skills_contains, "Skills" %><br />
+        <%= f.text_field :skills_contains %><br />
+
+        <%= f.label :resume_contains, "Resume" %><br />
+        <%= f.text_field :resume_contains %><br />
+        
+        <%= f.label :name_or_location_or_skills_or_tagline_or_resume_contains, "Any Keyword" %><br />
+        <%= f.text_field :name_or_location_or_skills_or_tagline_or_resume_contains %><br />
+
+        <%#*<strong><u>Availability</u></strong><br/>%>
+        <%#= radio_button_tag(:search, :status_gt, 0) %>
+        <%#= label_tag(:status_gt, "Available") %><br/>
+        <%#= radio_button_tag(:search, :status_lt, 1) %>
+        <%#= label_tag(:status_lt, "Unavailable") %><br/>
+        <%#= radio_button_tag(:search, :status_gte, 0) %>
+        <%#= label_tag(:status_gte, "Both") %><br/>
+        <%#*<br/>%>
+
+        <strong>Availability</strong><br/>
+        <%= f.label :status_gte, "Min" %>
+        <%= f.text_field :status_gte, :size => 3 %>
+        <%= f.label :status_lte, "Max" %>
+        <%= f.text_field :status_lte, :size => 3 %><br />
+
+      <p class="button"><%= f.submit "Search" %></p>
+  <% end %>
