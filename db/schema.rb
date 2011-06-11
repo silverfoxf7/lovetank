@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406104739) do
+ActiveRecord::Schema.define(:version => 20110424213250) do
 
   create_table "bids", :force => true do |t|
     t.integer  "amount"
@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(:version => 20110406104739) do
   add_index "jobposts", ["work_intensity"], :name => "index_jobposts_on_work_intensity"
   add_index "jobposts", ["work_type"], :name => "index_jobposts_on_work_type"
 
+  create_table "matters", :force => true do |t|
+    t.string   "name"
+    t.string   "firm"
+    t.string   "email"
+    t.string   "mtr_name"
+    t.string   "mtr_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
@@ -65,6 +75,16 @@ ActiveRecord::Schema.define(:version => 20110406104739) do
   end
 
   add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "matter_id"
+    t.integer  "communication"
+    t.integer  "value"
+    t.integer  "satisfaction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
