@@ -11,17 +11,6 @@
 </div>
 
 <div class="field">
-	<%= f.label :password %>  <br />  
-	<%= f.password_field :password %>  
-	<!-- cannot use f.text_field because it shows password when typing -->
-</div>	
-
-<div class="field">
-	<%= f.label :password_confirmation, "Confirm Password" %>  <br />
-	<%= f.password_field :password_confirmation %>
-</div>
-
-<div class="field">
 	<%= f.label :gender %>  <br />
         <%= f.radio_button :gender, '1' %>Female <br/>
         <%= f.radio_button :gender, '2' %>Male <br/>

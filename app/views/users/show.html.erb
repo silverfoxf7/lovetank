@@ -6,44 +6,31 @@
 				<%= @user.name %>
 			</h1>
 			<%= render 'follow_form' if signed_in? %>
-                        <table class "userprofile" summary="user profile">
-
-        <% if @user.account_type == 1 %>
-          <%= render 'attorney_profile', :f => @user %>
-        <% elsif @user.account_type == 2 %>
-          <%= render 'agency_profile', :f => @user %>
-        <% elsif @user.account_type == 3 %>
-          <%= render 'lawfirm_profile', :f => @user %>
-        <% else %>
-          <%= render 'client_profile', :f => @user %>
-        <% end %>
-
+                        <table class="userprofile" summary="user profile">
+                          
+                  <%= render 'user_profile', :f => @user %>
 </table>
+<p><a href="/partners/new">Enter Your Partner's Info</a>.</p>
 
-      
-        <%#*<a href="<%= billable_jobs_user_path(@user) %>">%>
-          <%#*<span id="billable_jobs" class="stat">%>
-            <%#= @user.billable_jobs.count %>
-            <%#*billable jobs%>
-          <%#*</span>%>
-        <%#*</a>%>
-      
+<p>Who is your partner?</p>
+<p>Partner's Name is:  <%= @partner.name %></p>
+</br>
+<%= form_for(@lovepost) do |f| %>
 
-        <% if @user.jobposts.any? %>
-                <table class="jobposts" summary="User jobposts">
-                  <h3>Your Projects</h3>
-                  <%= render @jobposts %>
+	<%= render 'lovepost', :f => f %>
 
-                </table>
-                <%= will_paginate @jobposts %>
-        <% end %>
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
 
-        <% if @user.microposts.any? %>
-                <table class="microposts" summary="User microposts">
-                        <%= render @microposts %>
+<% end %>
+
+        <% if @user.loveactions.any? %>
+                <table class="microposts" summary="User Loveactions">
+                        <%= render @loveactions %>
                         <!-- remember that render requires a _partial.html.erb -->
                 </table>
-                <%= will_paginate @microposts %>
+                <%= will_paginate @loveactions %>
         <% end %>
 			
 		</td>	

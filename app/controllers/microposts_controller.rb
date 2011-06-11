@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
     # don't use "micropost.new" b/c we want the new micropost to be associated to
     # a particular user.  Here, the user that is logged in is "current_user"
     if @micropost.save 
-      redirect_to root_path, :flash => {:success => "Micropost created!"}
+      redirect_to root_path, :flash => {:success => "Love Action Created!"}
     else
       @feed_items = []
       render 'pages/home'
@@ -17,7 +17,7 @@ class MicropostsController < ApplicationController
   
   def destroy
     @micropost.destroy
-    redirect_to root_path, :flash => { :success => "Micropost deleted." }
+    redirect_to root_path, :flash => { :success => "Love Action Deleted." }
   end
 
   private

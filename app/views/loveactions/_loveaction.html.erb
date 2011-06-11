@@ -1,0 +1,18 @@
+<tr>
+	<td class="micropost">
+		<span class="content"><%= loveaction.act %> </span>
+		<span class="timestamp">
+			Posted <%= time_ago_in_words(loveaction.created_at) %> ago.
+		</span>
+	</td>
+	<% user = loveaction.user rescue User.find(loveaction.user_id) %>
+<!-- the code immediately above and below is to fix a funky bug -->
+
+	<% if current_user?(user) %>
+		<td>
+			<%= link_to "delete", loveaction, :method => :delete,
+                        :confirm => "You sure?",
+                        :title => loveaction.act %>
+		</td>
+	<% end %>
+</tr>

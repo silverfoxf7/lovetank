@@ -23,14 +23,19 @@
 #    add_column :users, :skill3, :string
 #    add_column :users, :resume, :text
 #    add_column :users, :account_type, :integer
+#    add_column :users, :gender, :integer
+#    add_column :users, :birthday, :datetime
 
 class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :email, :password, :password_confirmation,
                   :real_name, :status, :skills, :location, :tagline, 
                   :skill1, :skill2, :skill3, :resume, :account_type,
-                  :rating, :jobs_completed
+                  :rating, :jobs_completed, :gender, :birthday
+
   #allows users to enter/change their name & email, pswd
+
+  has_many :loveactions,   :dependent => :destroy
 
   has_many :bids,          :dependent => :destroy
   accepts_nested_attributes_for :bids
@@ -71,8 +76,6 @@ class User < ActiveRecord::Base
   validates :password,  :presence => true, 
                         :confirmation => true,
                         :length   => { :within => 6..40 } 
-
-  validates :account_type,  :presence => true
 
 
   # we want to create the encrypted password before the user gets saved to the DB 

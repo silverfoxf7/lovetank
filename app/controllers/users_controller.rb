@@ -22,7 +22,10 @@ class UsersController < ApplicationController
     @title = @user.name
     @microposts = @user.microposts.paginate(:page => params[:page])
     @jobposts = @user.jobposts.paginate(:page => 1)
-    
+    @temp = Relationship.find_by_follower_id(params[:id])
+    @partner = User.find(@temp.followed_id)
+    @loveactions = @user.loveactions.paginate(:page => params[:page])
+    @lovepost = Loveaction.new
   end
   
   def following 
@@ -54,13 +57,29 @@ class UsersController < ApplicationController
       # send an email saying registration successful
       sign_in @user
       
-      redirect_to user_path(@user), :flash => { :success => "Welcome to PLE!" }
+      redirect_to user_path(@user), :flash => { :success => "Welcome to Relationship Buddy!" }
       
     else
       @title = "Sign Up"
       render 'new'
     end
   end
+#
+#  def partner_new
+#    @partner = User.new
+#    @title = "Enter Your Partner's Information"
+#  end
+#
+#  def partner_create
+#    @partner = User.new(params[:partner])
+#    new_random_password
+#    if @partner.save
+#      redirect_to user_path(current_user), :flash => { :success => "Thank you for adding your partner!" }
+#    else
+#      @title = "Enter Your Partner's Information"
+#      render 'new'
+#    end    
+#  end
   
   def edit
     @user = User.find(params[:id])
@@ -104,5 +123,11 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_path) if (!current_user.admin? || current_user?(@user))
     end
-  
+
+#    def new_random_password
+#      @temppass = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{current_user.name}--")[0,6]
+#      @partner.password = @temppass
+#      @partner.password_confirmation = @temppass
+#    end
+
 end

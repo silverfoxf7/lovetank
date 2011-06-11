@@ -1,0 +1,20 @@
+<!-- Using a Rails Form Helper -->
+<!--body container starts-->
+<div id="body_container">
+    <!--project page box starts-->
+  <div id="project_page">
+
+<h1 class="title_header">Enter Your Partner's Info</h1>
+
+<%= form_for @partner, :url => {:controller => 'users', :action => 'partner_create'} do |f| %>
+
+	<%= render 'partnerfields', :f => f %>
+
+	<div class="actions">
+		<%= f.submit "Submit!" %>
+	</div>
+
+<% end %>
+<!-- note that the second embedded Ruby does not have = sign ...-->
+  </div>
+</div>

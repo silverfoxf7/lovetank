@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424213250) do
+ActiveRecord::Schema.define(:version => 20110611164013) do
 
   create_table "bids", :force => true do |t|
     t.integer  "amount"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(:version => 20110424213250) do
   add_index "jobposts", ["user_id"], :name => "index_jobposts_on_user_id"
   add_index "jobposts", ["work_intensity"], :name => "index_jobposts_on_work_intensity"
   add_index "jobposts", ["work_type"], :name => "index_jobposts_on_work_type"
+
+  create_table "loveactions", :force => true do |t|
+    t.string   "act"
+    t.integer  "user_id"
+    t.datetime "date"
+    t.integer  "recip_id"
+    t.integer  "my_rating"
+    t.integer  "recip_rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "matters", :force => true do |t|
     t.string   "name"
@@ -117,6 +128,8 @@ ActiveRecord::Schema.define(:version => 20110424213250) do
     t.string   "skill3"
     t.text     "resume"
     t.integer  "account_type"
+    t.integer  "gender"
+    t.datetime "birthday"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
