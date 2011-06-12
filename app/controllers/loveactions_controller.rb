@@ -13,6 +13,15 @@ class LoveactionsController < ApplicationController
       
     if @loveaction.save
       redirect_to current_user, :flash => {:success => "Love Action Posted!"}
+
+       if current_user.facebook_id.nil?
+          # fail gracefully!
+       else
+          Facebook.updateStatus(current_user.facebook_id,
+                               current_user.facebook_token,
+"I just expressed loved to my partner and tracked it.  We're improving our relationship with Show Me The Love. Learn more!")
+      end
+
     else
       @feed_items = []
       render 'pages/home'

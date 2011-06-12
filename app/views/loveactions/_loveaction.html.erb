@@ -1,28 +1,34 @@
 <tr>
 	<td class="micropost">
 
-<%= gravatar_image_tag User.find(loveaction.user_id).email %>
-<%= User.find(loveaction.user_id).name %> </br>
+<%= gravatar_image_tag User.find(loveaction.recip_id).email %>
+<%= User.find(loveaction.recip_id).name %> </br>
 
 		<span class="content"><%= loveaction.act %> </span>
 		<span class="timestamp">
 			Posted <%= time_ago_in_words(loveaction.created_at) %> ago.
 		</span>
+
+
+
 <% if loveaction.average_rating > 0 %>
   <div id="avg-rating">
     <%= render :partial => "ratings/avg_rating", :locals => { :asset => loveaction } %>
   </div>
 <% else %>
-  <div id="star-ratings-block">
-    <%= render :partial => "ratings/rating", :locals => { :asset => loveaction } %>
-  </div>
+
+  <% if current_user.id == User.find(loveaction.recip_id).id %>
+      <div id="star-ratings-block">
+        <%= render :partial => "ratings/rating", :locals => { :asset => loveaction } %>
+      </div>
+  <% end  %>
+
 <% end  %>
-test1
-<%= loveaction.average_rating %> <%= loveaction.ratings.count %>
-test2
+
 
 	</td>
 	<% user = loveaction.user rescue User.find(loveaction.user_id) %>
 <!-- the code immediately above and below is to fix a funky bug -->
 
 </tr>
+
