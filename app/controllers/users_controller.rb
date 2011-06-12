@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 #    @loveactions = @user.loveactions.paginate(:page => params[:page])
     @loveactions = current_user.lovefeed.paginate(:page => params[:page])
     @lovepost = Loveaction.new
+
   end
   
   def following 

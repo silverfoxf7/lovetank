@@ -19,8 +19,8 @@ class LoveactionsController < ApplicationController
        else
           Facebook.updateStatus(current_user.facebook_id,
                                current_user.facebook_token,
-"I just expressed loved to my partner and tracked it.  We're improving our relationship with Show Me The Love. Learn more!")
-      end
+"I just expressed loved to my partner and tracked it.  We're improving our relationship with Show Me The Love. Learn more! http://lovetank.heroku.com")
+       end
 
     else
       @feed_items = []
