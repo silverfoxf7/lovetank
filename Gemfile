@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'meta_where'
 gem 'meta_search'
 gem 'activemerchant'
+gem 'ajaxful_rating'
 
 group :development do
   gem 'rspec-rails', '2.5.0'

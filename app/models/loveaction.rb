@@ -13,14 +13,13 @@ class Loveaction < ActiveRecord::Base
 #      t.timestamps
 
 #  object.strftime("Printed on %m/%d/%Y")   #=> "Printed on 11/19/2007"
-
+  
+  is_ajaxful_rater
 
   attr_accessible :act, :date, :my_rating, :recip_rating
 
   belongs_to :user
-
   validates :act, :presence => true, :length => { :maximum => 140}
-  validates :date, :presence => true  
   validates :user_id, :presence => true
 
   default_scope :order => 'loveactions.created_at DESC'
@@ -33,6 +32,5 @@ class Loveaction < ActiveRecord::Base
                       WHERE follower_id = :user_id)
       where("user_id IN (#{followed_ids}) OR user_id = :user_id",
                                                        :user_id => user)
-    end
-  
+    end  
 end

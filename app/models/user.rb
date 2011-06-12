@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
                   :skill1, :skill2, :skill3, :resume, :account_type,
                   :rating, :jobs_completed, :gender, :birthday
 
+  has_ajaxful_rates
+  
   #allows users to enter/change their name & email, pswd
 
   has_many :loveactions,   :dependent => :destroy
@@ -83,6 +85,10 @@ class User < ActiveRecord::Base
   
   def feed
     Micropost.from_users_followed_by(self)    
+  end
+
+  def lovefeed
+    Loveaction.from_users_followed_by(self)
   end
   
   def jobfeed

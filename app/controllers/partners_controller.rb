@@ -7,11 +7,9 @@ class PartnersController < ApplicationController
   before_filter :admin_user,   :only => :destroy
   
   def index
-
   end
 
   def show
-
   end
 
   def new
@@ -26,6 +24,7 @@ class PartnersController < ApplicationController
     if @user.save
         # build relationship here
         current_user.follow!(@user)
+        @user.follow!(current_user)
         redirect_to user_path(current_user), :flash => { :success => "Thank you for adding your partner!" }
     else
       @title = "Enter Your Partner's Information"
@@ -77,7 +76,8 @@ class PartnersController < ApplicationController
     end
 
     def new_random_password
-      @temppass = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{current_user.name}--")[0,6]
+#      @temppass = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{current_user.name}--")[0,6]
+      @temppass = "foobar"
       @user.password = @temppass
       @user.password_confirmation = @temppass
     end

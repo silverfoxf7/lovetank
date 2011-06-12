@@ -5,10 +5,14 @@ class LoveactionsController < ApplicationController
   
   def create
     @loveaction = current_user.loveactions.build(params[:loveaction])
-    # don't use "loveaction.new" b/c we want the new loveaction to be associated to
-    # a particular user.  Here, the user that is logged in is "current_user"
+
+    @temp = Relationship.find_by_follower_id(current_user)
+    @partner = User.find(@temp.followed_id)
+
+    @loveaction.recip_id = @partner.id
+      
     if @loveaction.save
-      redirect_to current_user, :flash => {:success => "Love Action Created!"}
+      redirect_to current_user, :flash => {:success => "Love Action Posted!"}
     else
       @feed_items = []
       render 'pages/home'

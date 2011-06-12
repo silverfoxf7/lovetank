@@ -12,18 +12,25 @@
 </table>
 <p><a href="/partners/new">Enter Your Partner's Info</a>.</p>
 
-<p>Who is your partner?</p>
-<p>Partner's Name is:  <%= @partner.name %></p>
-</br>
-<%= form_for(@lovepost) do |f| %>
+    <% if @temp.nil? %>
 
-	<%= render 'lovepost', :f => f %>
+    <% else %>
+        <p>Who is your partner?</p>
+        <p>Partner's Name is:  <%= @partner.name %></p>
+        </br>
+        <%= form_for(@lovepost) do |f| %>
 
-	<div class="actions">
-		<%= f.submit "Submit" %>
-	</div>
+                <%= render 'lovepost', :f => f %>
 
-<% end %>
+                <div class="actions">
+                        <%= f.submit "Submit" %>
+                </div>
+
+        <% end %>
+
+    <% end %>
+
+
 
         <% if @user.loveactions.any? %>
                 <table class="microposts" summary="User Loveactions">
