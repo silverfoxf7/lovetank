@@ -5,11 +5,12 @@
   <div id="project_page">
 	
 		<div class="span-25 center"><h1 class="title">Partner's Info</h1></div>
-
+		
 		<div id="form-wrapper" class="prepend-6 span-13">
 
 
 <%= form_for @partner, :url => {:controller => 'users', :action => 'partner_create'} do |f| %>
+
 
 	<div class="field">
 		<%= f.label :name, "Name" %>  <br />
