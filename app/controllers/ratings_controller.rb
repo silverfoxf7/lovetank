@@ -21,7 +21,7 @@ class RatingsController < ApplicationController
     else
     Facebook.updateStatus(current_user.facebook_id,
                           current_user.facebook_token,
-                          "I just rated my partner's expression of love. We're improving our relationship with Show Me the Love.  Learn more!")
+                          "I just rated my partner's expression of love. We're improving our relationship with Show Me the Love.  Learn more! http://lovetank.heroku.com")
     end
   end
 end
