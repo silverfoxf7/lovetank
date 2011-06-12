@@ -15,6 +15,9 @@ class RatingsController < ApplicationController
     #  page.replace_html 'star-ratings-block', :partial => 'ratings/rating', :locals => { :asset => @asset }
     #  page.visual_effect :highlight, 'rate'
       redirect_to(@asset.user)
-    #end
+
+    Facebook.updateStatus(current_user.facebook_id,
+                          current_user.facebook_token,
+                          "I'm using Show me the Love!")
   end
 end

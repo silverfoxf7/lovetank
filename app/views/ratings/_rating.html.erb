@@ -5,28 +5,28 @@
     </li>
   <% end %>
     <li>
-        <%= link_to_remote( "1", url_for(:controller => "ratings",
+        <%= link_to( "1", url_for(:controller => "ratings",
             :action => "rate", :lid => asset.id, :rating => 1),
             :class => 'one-star', :name => '1 star out of 5') %>
     </li>
     <li>
-        <%= link_to( "2", {:url => { :controller => "ratings",
-            :action => "rate", :lid => asset.id, :rating => 2}},
+        <%= link_to( "2", url_for(:controller => "ratings",
+            :action => "rate", :lid => asset.id, :rating => 2),
             :class => 'two-stars', :name => '2 stars out of 5') %>
     </li>
     <li>
-        <%= link_to( "3", {:url => { :controller => "ratings",
-            :action => "rate", :lid => asset.id, :rating => 3}},
+        <%= link_to( "3", url_for(:controller => "ratings",
+            :action => "rate", :lid => asset.id, :rating => 3),
             :class => 'three-stars', :name => '3 stars out of 5') %>
     </li>
     <li>
-        <%= link_to( "4", {:url => { :controller => "ratings",
-            :action => "rate", :lid => asset.id, :rating => 4}},
+        <%= link_to( "4", url_for(:controller => "ratings",
+            :action => "rate", :lid => asset.id, :rating => 4),
             :class => 'four-stars', :name => '4 stars out of 5') %>
     </li>
     <li>
-        <%= link_to( "5", {:url => { :controller => "ratings",
-            :action => "rate", :lid => asset.id, :rating => 5}},
+        <%= link_to( "5", url_for(:controller => "ratings",
+            :action => "rate", :lid => asset.id, :rating => 5),
             :class => 'five-stars', :name => '5 stars out of 5') %>
     </li>
 </ul>
