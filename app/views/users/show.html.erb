@@ -1,49 +1,59 @@
-<table class "profile" summary="Profile Information">
-	<tr>
-		<td class="main">
-			<h1>
-				<%= gravatar_for @user %>
-				<%= @user.name %>
-			</h1>
-			<%= render 'follow_form' if signed_in? %>
-                        <table class="userprofile" summary="user profile">
-                          
-                  <%= render 'user_profile', :f => @user %>
-</table>
-<p><a href="/partners/new">Enter Your Partner's Info</a>.</p>
+<% if @temp.nil? %>
 
-    <% if @temp.nil? %>
+<% else %>
+   
+    <%= form_for(@lovepost) do |f| %>
 
-    <% else %>
-        <p>Who is your partner?</p>
-        <p>Partner's Name is:  <%= @partner.name %></p>
-        </br>
-        <%= form_for(@lovepost) do |f| %>
-
-                <%= render 'lovepost', :f => f %>
-
-                <div class="actions">
-                        <%= f.submit "Submit" %>
-                </div>
-
-        <% end %>
+            <%= render 'lovepost', :f => f %>
 
     <% end %>
 
+<% end %>
 
 
-        <% if @user.loveactions.any? %>
-                <table class="microposts" summary="User Loveactions">
-                        <%= render @loveactions %>
-                        <!-- remember that render requires a _partial.html.erb -->
-                </table>
-                <%= will_paginate @loveactions %>
-        <% end %>
+    <% if @user.loveactions.any? %>
+
+	<div id="love-stream-wrapper" class="span-25">
+			<!-- start love-stream-section -->
+			<div id="love-stream" class="span-15">
 			
-		</td>	
-	</tr>
-       
+			<!-- start love-stream list -->
+			<ul>	
+                    <%= render @loveactions %>
+                    <!-- remember that render requires a _partial.html.erb -->
+            </ul> <!-- end love-stream list -->
+            <%= will_paginate @loveactions %>
+    <% end %>
+		</div> <!-- end love-stream section -->
+		
+		<div id="sidebar" class="span-9 last">
 
-</table>
+			<!-- start recommendations -->
+			<section id="recommendations" class="">
+				<h2>What else you should do</h2>
+				<ul>
+					<li class="first">
+						<a href="#">Movie: Bridesmaid</a>
+					</li>
 
+					<li>
+						<a href="#">Facial, Massage, or Body wrap - <span class="highlight tl tr bl br">63% Off</span></a>
+					</li>
 
+					<li class="last">
+						<a href="#">After Work Cruise - <span class="highlight">50% off</span></a>
+					</li>
+				</ul>					
+			</section>
+			<!-- end recommendations -->
+
+			<section id="tips" class="span-9">
+				<h2>Our Tip to you</h2>
+				<p>Against popular belief, taking trash out might get you more brownie points than buying flowers.</p>
+			</section>				
+
+		</div>
+		<!-- end sidebar -->
+
+	</div>
+	<!-- end love-stream-wrapper -->

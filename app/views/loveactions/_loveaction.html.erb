@@ -1,34 +1,29 @@
-<tr>
-	<td class="micropost">
+<li>
+	<div class="thumbnail span-2"><%= gravatar_image_tag User.find(loveaction.recip_id).email %><br />
+		<%= User.find(loveaction.recip_id).name %>
+		</div>
 
-<%= gravatar_image_tag User.find(loveaction.recip_id).email %>
-<%= User.find(loveaction.recip_id).name %> </br>
+<div class="action-name span-8 last">
+	<h2 class="content"><%= loveaction.act %></h2>
+	<h3 class="timestap">Posted <%= time_ago_in_words(loveaction.created_at) %> ago.</h3>
+</div>
+<div class="rating span-3">	
+	<% if loveaction.average_rating > 0 %>
+	  <div id="avg-rating">
+	    <%= render :partial => "ratings/avg_rating", :locals => { :asset => loveaction } %>
+	  </div>
+	<% else %>
 
-		<span class="content"><%= loveaction.act %> </span>
-		<span class="timestamp">
-			Posted <%= time_ago_in_words(loveaction.created_at) %> ago.
-		</span>
+	  <% if current_user.id == User.find(loveaction.recip_id).id %>
+	      <div id="star-ratings-block">
+	        <%= render :partial => "ratings/rating", :locals => { :asset => loveaction } %>
+	      </div>
+	  <% end  %>
 
+	<% end  %>
+</div>
 
-
-<% if loveaction.average_rating > 0 %>
-  <div id="avg-rating">
-    <%= render :partial => "ratings/avg_rating", :locals => { :asset => loveaction } %>
-  </div>
-<% else %>
-
-  <% if current_user.id == User.find(loveaction.recip_id).id %>
-      <div id="star-ratings-block">
-        <%= render :partial => "ratings/rating", :locals => { :asset => loveaction } %>
-      </div>
-  <% end  %>
-
-<% end  %>
-
-
-	</td>
+</li>
 	<% user = loveaction.user rescue User.find(loveaction.user_id) %>
 <!-- the code immediately above and below is to fix a funky bug -->
-
-</tr>
 

@@ -4,39 +4,81 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   	<title> <%= title %> </title>
 	<%= csrf_meta_tag %>
-        <%#*<style type="text/css" media="all">%>
-          <%#*@import url("public/stylesheets/style.css");%>
-        <%#*</style>%>
-<!--[if IE 6]>
-<script  type="text/javascript" src="public/javascripts/png.js"></script>
-<link href="public/stylesheets/ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
+        
 
 	<%= render 'layouts/stylesheets' %>
 	<%= javascript_include_tag :defaults %>
 	<%= javascript_include_tag 'prototype' %>
+        <%= init_tinymce_hammer_if_required %>
 
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>	
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
   </head>
   
-    <% if (params[:controller] == 'pages' && params[:action] == 'home') %>
-  <body id="home">
+    <% if (params[:controller] == 'pages' && params[:action] == 'home') || !signed_in? || (params[:controller] == 'partners' && params[:action] == 'new')   %>
+  <body id="main">
+		<%= render 'layouts/header' %>
+
+  
+	<div id="dashboard-wrapper">
+		<div class="container">
+			<%= yield %>
+			
+		</div> <!-- end container -->
+	</div> <!-- end dashboard_wrapper -->
+	
+
+<!--wrapper ends-->
+<%= render 'layouts/footer' %>
+
     <% else %>
-  <body>
+  <body id="dashboard">
+		<%= render 'layouts/header' %>
+
+  
+	<div id="dashboard-wrapper">
+		<div class="container">
+			<%= yield %>
+			
+		</div> <!-- end container -->
+	</div> <!-- end dashboard-wrapper -->
+	
+	<!-- start footer -->
+		<section id="bottom-footer">
+				<div class="container">
+					<div class="prepend-1 span-24">
+						<div class="thumbnail span-2">
+							<%= gravatar_for @user %>
+						</div>
+						<div class="span-4"><p class="">Hello <%= @user.name %></p></div>
+
+						<div id="badges" class="span-10">
+							<ul class="">
+								<li class="tl tr bl br">
+									<img class="center tl tr bl br" src="../images/93.png" />
+								</li>
+
+								<li class="tl tr bl br">
+									<img class="center tl tr bl br" src="../images/207.png" />
+								</li>
+
+								<li class="tl tr bl br">
+									<img class="center tl tr bl br" src="../images/206.png" />
+								</li>						
+							</ul>
+						</div>
+
+						<div class="span-6 last" style="float:right;"><a id="subscribe" href="http://localhost:3000/partners/new" class="button tl tr bl br"><span class="plus">+</span> Add a relationship</a></div>
+
+					</div>
+
+				</div>
+		</section>
+		<!-- end footer -->
+	
     <% end %>
 
-       <div id="wrapper">
-                <%= render 'layouts/header' %>
-         
-                <%= render 'shared/flash_errors' %>
-        
-          <div id="yield">
-            <section class="round">
-			<%= yield %>
-              </section>
-          </div>
-
       <!--wrapper ends-->
-      </div>
-		<%= render 'layouts/footer' %>
   </body>
 </html>
