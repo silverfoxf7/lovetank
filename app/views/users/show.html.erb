@@ -10,11 +10,6 @@
 
 <% end %>
 
-<% if !current_user.facebook_id %>
-	<div class="span-25 center"><a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>">Connect With Using Facebook</a></div><br />
-<% else %>
-        
-<% end %>
     <% #if @user.loveactions.any? %>
 
 	<div id="love-stream-wrapper" class="span-25">
