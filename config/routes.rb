@@ -48,6 +48,8 @@ SampleApp::Application.routes.draw do
   match '/signup',    :to => 'users#new'
   match '/signin',    :to => 'sessions#new'
   match '/signout',   :to => 'sessions#destroy'
+  
+  match '/facebook/confirm', :to => 'facebook#confirm'
   # takes the website route /ZOT and matches to contrller_zot # ZOT-rsrc
 
   
