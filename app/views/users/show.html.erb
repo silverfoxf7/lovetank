@@ -11,7 +11,7 @@
 <% end %>
 
 
-    <% if @user.loveactions.any? %>
+    <% #if @user.loveactions.any? %>
 
 	<div id="love-stream-wrapper" class="span-25">
 			<!-- start love-stream-section -->
@@ -23,7 +23,7 @@
                     <!-- remember that render requires a _partial.html.erb -->
             </ul> <!-- end love-stream list -->
             <%= will_paginate @loveactions %>
-    <% end %>
+    <% #end %>
 		</div> <!-- end love-stream section -->
 		
 		<div id="sidebar" class="span-9 last">
