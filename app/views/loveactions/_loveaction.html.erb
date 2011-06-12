@@ -8,16 +8,16 @@
 		<span class="timestamp">
 			Posted <%= time_ago_in_words(loveaction.created_at) %> ago.
 		</span>
-
+<% if 1 == 0  %>
   <div id="avg-rating">
     <%= render :partial => "ratings/avg_rating", :locals => { :asset => loveaction } %>
   </div>
-
+<% end  %>
   <div id="star-ratings-block">
     <%= render :partial => "ratings/rating", :locals => { :asset => loveaction } %>
   </div>
 test1
-<%= loveaction.recip_rating %>
+<%= loveaction.average_rating %> <%= loveaction.ratings.count %>
 test2
 
 	</td>

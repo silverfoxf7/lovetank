@@ -5,8 +5,8 @@
     </li>
   <% end %>
     <li>
-        <%= link_to( "1", {:url => { :controller => "ratings",
-            :action => "rate", :lid => asset.id, :rating => 1}},
+        <%= link_to_remote( "1", url_for(:controller => "ratings",
+            :action => "rate", :lid => asset.id, :rating => 1),
             :class => 'one-star', :name => '1 star out of 5') %>
     </li>
     <li>
