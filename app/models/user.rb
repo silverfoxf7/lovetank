@@ -32,9 +32,7 @@ class User < ActiveRecord::Base
                   :real_name, :status, :skills, :location, :tagline, 
                   :skill1, :skill2, :skill3, :resume, :account_type,
                   :rating, :jobs_completed, :gender, :birthday
-
-  has_ajaxful_rates
-  
+    
   #allows users to enter/change their name & email, pswd
 
   has_many :loveactions,   :dependent => :destroy

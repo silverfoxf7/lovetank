@@ -10,6 +10,8 @@ SampleApp::Application.routes.draw do
     # named route = billable_jobs_user_path(1)
   end
 
+  resources :loveactions, :member => {:rate => :post}
+
   resources :partners,   :only => [:new, :create, :destroy]
   resources :loveactions, :only => [:create, :destroy]
   resources :sessions,   :only => [:new, :create, :destroy]
