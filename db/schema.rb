@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611164013) do
+ActiveRecord::Schema.define(:version => 20110612011430) do
 
   create_table "bids", :force => true do |t|
     t.integer  "amount"
@@ -108,6 +108,9 @@ ActiveRecord::Schema.define(:version => 20110611164013) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
+# Could not dump table "sqlite_stat1" because of following StandardError
+#   Unknown type '' for column 'tbl'
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -130,6 +133,8 @@ ActiveRecord::Schema.define(:version => 20110611164013) do
     t.integer  "account_type"
     t.integer  "gender"
     t.datetime "birthday"
+    t.string   "facebook_token"
+    t.string   "facebook_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
