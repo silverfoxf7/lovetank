@@ -14,7 +14,6 @@ class Loveaction < ActiveRecord::Base
 
 #  object.strftime("Printed on %m/%d/%Y")   #=> "Printed on 11/19/2007"
   
-
   attr_accessible :act, :date, :my_rating, :recip_rating
 
   belongs_to :user

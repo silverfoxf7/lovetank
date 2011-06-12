@@ -31,8 +31,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation,
                   :real_name, :status, :skills, :location, :tagline, 
                   :skill1, :skill2, :skill3, :resume, :account_type,
-                  :rating, :jobs_completed, :gender, :birthday
-    
+                  :rating, :jobs_completed, :gender, :birthday, :facebook_id, :facebook_token
+
   #allows users to enter/change their name & email, pswd
 
   has_many :loveactions,   :dependent => :destroy

@@ -8,6 +8,8 @@
 
 <h1>Sign Up</h1>
 
+<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>">Sign Up Using Facebook</a><br /><br />
+
 <%= form_for(@user) do |f| %>
 
 	<%= render 'fields', :f => f %>	

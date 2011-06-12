@@ -136,6 +136,8 @@ ActiveRecord::Schema.define(:version => 20110612042151) do
     t.integer  "account_type"
     t.integer  "gender"
     t.datetime "birthday"
+    t.string   "facebook_token"
+    t.string   "facebook_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
