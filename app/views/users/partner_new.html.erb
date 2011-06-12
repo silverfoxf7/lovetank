@@ -3,18 +3,37 @@
 <div id="body_container">
     <!--project page box starts-->
   <div id="project_page">
+	
+		<div class="span-25 center"><h1 class="title">Partner's Info</h1></div>
 
-<h1 class="title_header">Enter Your Partner's Info</h1>
+		<div id="form-wrapper" class="prepend-6 span-13">
+
 
 <%= form_for @partner, :url => {:controller => 'users', :action => 'partner_create'} do |f| %>
 
-	<%= render 'partnerfields', :f => f %>
+	<div class="field">
+		<%= f.label :name, "Name" %>  <br />
+		<%= f.text_field :name %>
+	</div>
 
-	<div class="actions">
+	<div class="field">
+		<%= f.label :email %>  <br />
+		<%= f.text_field :email %>
+	</div>
+
+	<div class="field">
+		<%= f.label :gender %>  <br />
+	        <%= f.radio_button :gender, '1' %>Female <br/>
+	        <%= f.radio_button :gender, '2' %>Male <br/>
+	</div>
+
+	<div class="actions green_button">
 		<%= f.submit "Submit!" %>
 	</div>
 
 <% end %>
+
+	</div>
 <!-- note that the second embedded Ruby does not have = sign ...-->
   </div>
 </div>

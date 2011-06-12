@@ -12,13 +12,11 @@ gem 'activemerchant'
 gem 'httparty'
 
 group :development do
-  gem 'rspec-rails', '2.5.0'
   gem 'annotate-models'
   gem 'faker'
 end
 
 group :test do
-  gem 'rspec', '2.5.0'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails'
 end

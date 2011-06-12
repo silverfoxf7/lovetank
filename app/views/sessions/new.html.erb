@@ -1,10 +1,12 @@
 <div id="body_container">
     <!--project page box starts-->
   <div id="inner_page">
+	
+	<div class="span-25 center"><a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>">Sign In Using Facebook</a></div><br />
+	
+			<div class="span-25 center"><h1 class="title">Sign In</h1></div>
 
-<h1>Sign In</h1>
-
-<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>">Sign In Using Facebook</a><br /><br />
+			<div id="form-wrapper" class="prepend-6 span-13">
 
 <%= form_for(:session, :url => sessions_path) do |f| %>
 <!-- whereas "form_for(@user)" allows Rails to infer that the action of the form should be to POST to the URL /users, in the case of sessions we need to indicate both the name of the resource and the appropriate URL -->
@@ -20,13 +22,16 @@
 		<%= f.password_field :password %>
 	</div>
 	
-	<div class="actions">
-		<%= f.submit "Sign Up" %>  
+	<div class="actions green_button">
+		<%= f.submit "Sign In" %>  
 	</div>
 
 <% end %>
 
 <p> New User? <%= link_to "Sign Up Now!", signup_path %> </p>
+
+	</div>
+		<!-- end form-wrapper -->
 
 	</div>
     </div>
