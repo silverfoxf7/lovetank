@@ -14,7 +14,8 @@
 
 	<%= render 'layouts/stylesheets' %>
 	<%= javascript_include_tag :defaults %>
-        <%= init_tinymce_hammer_if_required %>
+	<%= javascript_include_tag 'prototype' %>
+
   </head>
   
     <% if (params[:controller] == 'pages' && params[:action] == 'home') %>

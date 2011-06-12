@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611164013) do
+ActiveRecord::Schema.define(:version => 20110612042151) do
 
   create_table "bids", :force => true do |t|
     t.integer  "amount"
@@ -87,15 +87,21 @@ ActiveRecord::Schema.define(:version => 20110611164013) do
 
   add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
 
+  create_table "rates", :force => true do |t|
+    t.integer "score"
+  end
+
   create_table "ratings", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "matter_id"
-    t.integer  "communication"
-    t.integer  "value"
-    t.integer  "satisfaction"
+    t.integer  "rate_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type", :limit => 32
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "ratings", ["rate_id"], :name => "index_ratings_on_rate_id"
+  add_index "ratings", ["rateable_id", "rateable_type"], :name => "index_ratings_on_rateable_id_and_rateable_type"
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"

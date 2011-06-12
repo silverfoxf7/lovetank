@@ -8,6 +8,18 @@
 		<span class="timestamp">
 			Posted <%= time_ago_in_words(loveaction.created_at) %> ago.
 		</span>
+
+  <div id="avg-rating">
+    <%= render :partial => "ratings/avg_rating", :locals => { :asset => loveaction } %>
+  </div>
+
+  <div id="star-ratings-block">
+    <%= render :partial => "ratings/rating", :locals => { :asset => loveaction } %>
+  </div>
+test1
+<%= loveaction.recip_rating %>
+test2
+
 	</td>
 	<% user = loveaction.user rescue User.find(loveaction.user_id) %>
 <!-- the code immediately above and below is to fix a funky bug -->

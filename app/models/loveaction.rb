@@ -19,6 +19,7 @@ class Loveaction < ActiveRecord::Base
 
   belongs_to :user
 
+  acts_as_rateable
 
   validates :act, :presence => true, :length => { :maximum => 140}
   validates :user_id, :presence => true
