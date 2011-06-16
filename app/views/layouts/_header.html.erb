@@ -13,23 +13,21 @@
 				          <li class="active">
 				            <%= link_to "PROFILE", user_path(current_user) %>
 				          </li>
-				          <li class="last">
+				          <li class="active">
 				            <%= link_to "LOG OUT", signout_path %>
 				          </li>
-                                          <li class="active">
+                                          <li class="last">
 <a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>"><img src="images/facebook-button.png" border="0"></img></a>
 				          </li>
 				<% else %>
-					<li><a title="Benefits" href="/why-image-work">Why Show Me The Love?</a></li>
-					<li><a title="" href="/customers">Customers</a></li>
 					<li><a class="" title="contact" href="#">Contact</a></li>
 				          <li class="active">
 				            <%= link_to "REGISTER", signup_path %>
 				          </li>
-				          <li class="last">
+				          <li class="active">
 				            <%= link_to "LOG IN", signin_path %>
 				          </li>
-                                          <li class="active">
+                                          <li class="last">
 <a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>"><img src="images/facebook-button.png" border="0"></img></a>
 				          </li>
 				<% end %>
