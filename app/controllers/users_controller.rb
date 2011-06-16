@@ -61,9 +61,8 @@ class UsersController < ApplicationController
       # handle a successful save.
       UserMailer.registration_confirmation(@user).deliver
       # send an email saying registration successful
-      sign_in @user
-      
-      redirect_to user_path(@user), :flash => { :success => "Welcome to Relationship Buddy!" }
+      sign_in @user      
+      redirect_to user_path(@user), :flash => { :success => "Welcome to Show Me the Love!" }
       
     else
       @title = "Sign Up"
