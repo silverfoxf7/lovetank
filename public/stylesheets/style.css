@@ -578,7 +578,7 @@ footer ul.span-4{
     position: fixed;
     width: 100%;
 	background-color: #000;
-	padding-top: 5px;
+	padding-top: 10px;
 	padding-bottom: 5px;
 	/*padding-bottom: 20px;*/
 	z-index:1000;
@@ -650,7 +650,7 @@ footer ul.span-4{
     text-shadow: 0 1px 1px #FFFFFF;
 }
 
-#form-wrapper form .field:first-child {
+#form-wrapper form .header {
     border-radius: 13px 13px 0 0;
 }
 
@@ -720,7 +720,7 @@ inout[type="text"]:focus{
 }
 
 #form-wrapper{
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 	margin-bottom: 20px;	
 }
 
@@ -868,4 +868,18 @@ h1.title {
 
 .num-ratings{
 	display: none;
+}
+
+
+#facebook-button-wrapper h2{ 
+	margin-bottom:0;
+	margin-top:10px; 
+	font-family: 'Myriad Pro';
+	font-weight: bold;
+	font-style: italic;
+	color: #4D5252;
+}
+
+#facebook-button-wrapper{ 
+	margin-top:10px; 
 }

@@ -8,7 +8,7 @@
 
 	<%= render 'layouts/stylesheets' %>
 	<%= javascript_include_tag :defaults %>
-	<%= javascript_include_tag 'prototype' %>
+	<%#= javascript_include_tag 'prototype' %>
         <%= init_tinymce_hammer_if_required %>
 
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>	
@@ -57,7 +57,8 @@
 						<div class="span-4"><p class="">Hello <%= @user.name %></p></div>
 
 						<div id="badges" class="span-10">
-							<ul class="">
+							<div class="prepend-1 span-10"><p class="">Share your Badges</p></div>
+							<ul class="span-10">
 								<li class="tl tr bl br">
 									<img class="center tl tr bl br" src="../images/93.png" />
 								</li>
@@ -70,14 +71,15 @@
 									<img class="center tl tr bl br" src="../images/206.png" />
 								</li>						
 							</ul>
+
 						</div>
 
-						<div class="span-6 last" style="float:right;"><a id="subscribe" href="http://localhost:3000/partners/new" class="button tl tr bl br"><span class="plus">+</span> Add a relationship</a></div>
+						<div id="relationship-add" class="span-6 last"><a id="subscribe" href="../partners/new" class="button tl tr bl br"><span class="plus">+</span> Add a relationship</a></div>
 
 					</div>
 
 				</div>
-		</section>
+		</div>
 		<!-- end footer -->
 	
     <% end %>
