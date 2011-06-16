@@ -70,22 +70,6 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-#
-#  def partner_new
-#    @partner = User.new
-#    @title = "Enter Your Partner's Information"
-#  end
-#
-#  def partner_create
-#    @partner = User.new(params[:partner])
-#    new_random_password
-#    if @partner.save
-#      redirect_to user_path(current_user), :flash => { :success => "Thank you for adding your partner!" }
-#    else
-#      @title = "Enter Your Partner's Information"
-#      render 'new'
-#    end    
-#  end
   
   def edit
     @user = User.find(params[:id])

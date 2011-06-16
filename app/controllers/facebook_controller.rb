@@ -33,7 +33,7 @@ class FacebookController < ApplicationController
 		flash[:notice] = "Could not update your Facebook token."
 	end
 	
-            redirect_to(users_path,  :user => current_user)
+            redirect_to(user_path(current_user),  :user => current_user)
           elsif(!current_user.facebook_id)
 	    flash[:notice] = "Added your facebook ID"
             #current_user.facebook_id = @fb_user["id"].to_s
@@ -44,10 +44,10 @@ class FacebookController < ApplicationController
 		else
 			flash[:notice] = "Could not add your Facebook ID."
 		end
-            redirect_to(users_path,  :user => current_user)
+            redirect_to(user_path(current_user),  :user => current_user)
           else
             flash[:notice] = "The Facebook account you're logged in under does not match the one you have on file already."
-            redirect_to(users_path,  :user => current_user)
+            redirect_to(user_path(current_user),  :user => current_user)
           end
         else
           #If this is a new user, use this token to create the user.
@@ -68,7 +68,7 @@ class FacebookController < ApplicationController
             else 
 #---> FB Authenticate User Here
               sign_in(@user)
-              redirect_to(users_path,  :user => current_user)
+              redirect_to(user_path(current_user),  :user => current_user)
             end
           else 
             #@user.facebook_token = @fb_token
@@ -80,7 +80,7 @@ class FacebookController < ApplicationController
             else
 #---> FB Authenticate User Here
               sign_in(@user)
-              redirect_to(users_path,  :user => current_user)
+              redirect_to(user_path(current_user),  :user => current_user)
             end
           end
         end

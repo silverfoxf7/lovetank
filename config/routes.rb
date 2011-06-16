@@ -2,7 +2,7 @@ SampleApp::Application.routes.draw do
  
   resources :users do
     member do
-      get :following, :followers, :billable_jobs, :partner_new, :partner_create
+      get :following, :followers, :billable_jobs
     end
     
     # gets pages for users/1/followers, . . ., users/199/followers . . .
