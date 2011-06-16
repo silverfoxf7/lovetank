@@ -10,26 +10,24 @@
 		<nav class="" style="float:right;">
 			<ul class="navigation">
 				<% if signed_in? %>
+<li class="active">
+<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>">CONNECT WITH FACEBOOK</a>
+</li>
 				          <li class="active">
 				            <%= link_to "PROFILE", user_path(current_user) %>
 				          </li>
-				          <li class="active">
+				          <li class="last">
 				            <%= link_to "LOG OUT", signout_path %>
 				          </li>
-                                          <li class="last">
-<%#*<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>"><img src="images/facebook-button.png" border="0"></img></a>%>
-TEST
-				          </li>
 				<% else %>
-					<li><a class="" title="contact" href="#">Contact</a></li>
+					<li>
+<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>">CONNECT WITH FACEBOOK</img></a>
+                                        </li>
 				          <li class="active">
 				            <%= link_to "REGISTER", signup_path %>
 				          </li>
-				          <li class="active">
+				          <li class="last">
 				            <%= link_to "LOG IN", signin_path %>
-				          </li>
-                                          <li class="last">
-<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>"><img src="images/facebook-button.png" border="0"></img></a>
 				          </li>
 				<% end %>
 			</ul>
