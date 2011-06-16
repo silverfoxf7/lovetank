@@ -17,7 +17,8 @@
 				            <%= link_to "LOG OUT", signout_path %>
 				          </li>
                                           <li class="last">
-<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>"><img src="images/facebook-button.png" border="0"></img></a>
+<%#*<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>"><img src="images/facebook-button.png" border="0"></img></a>%>
+TEST
 				          </li>
 				<% else %>
 					<li><a class="" title="contact" href="#">Contact</a></li>
