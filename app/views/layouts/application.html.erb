@@ -8,7 +8,10 @@
 
 	<%= render 'layouts/stylesheets' %>
 	<%= javascript_include_tag :defaults %>
-	<%#= javascript_include_tag 'prototype' %>
+        <!-- or -->
+        <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "jquery.rails.js" %>
+
+	<%= javascript_include_tag 'prototype' %>
         <%= init_tinymce_hammer_if_required %>
 
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>	
@@ -16,7 +19,17 @@
 		<link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
 		
 		<link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:bold' rel='stylesheet' type='text/css'>
-		
+	
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+      <script type="text/javascript" charset="utf-8">
+        $(function() {
+          $("#subscribe").click(function() {
+            $('form').submit();
+            return false;
+          })
+        })
+    </script>
+
   </head>
   
     <% if (params[:controller] == 'pages' && params[:action] == 'home') || !signed_in? || (params[:controller] == 'partners' && params[:action] == 'new')   %>

@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.paginate(:page => params[:page])
     @jobposts = @user.jobposts.paginate(:page => 1)
     @temp = Relationship.find_by_follower_id(params[:id])
+    
     if @temp.nil?
       # stuff...
     else
@@ -31,7 +32,6 @@ class UsersController < ApplicationController
 #    @loveactions = @user.loveactions.paginate(:page => params[:page])
     @loveactions = current_user.lovefeed.paginate(:page => params[:page])
     @lovepost = Loveaction.new
-
   end
   
   def following 

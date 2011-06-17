@@ -15,13 +15,18 @@ class RatingsController < ApplicationController
     #  page.replace_html 'star-ratings-block', :partial => 'ratings/rating', :locals => { :asset => @asset }
     #  page.visual_effect :highlight, 'rate'
       redirect_to(current_user)
-
+    
+    #raise params.inspect
+    
     if current_user.facebook_id.nil? 
-
+#          raise "no facebook status"
     else
-    Facebook.updateStatus(current_user.facebook_id,
+#      if params[:share] == "1"
+#          raise "update facebook status"
+        Facebook.updateStatus(current_user.facebook_id,
                           current_user.facebook_token,
-                          "I just rated my partner's expression of love. We're improving our relationship with Show Me the Love.  Learn more! http://lovetank.heroku.com")
+                          "I just rated my partner's expression of love. We're improving our relationship with Show Me the Love. Find out more: http://lovetank.heroku.com")
+#      end
     end
   end
 end

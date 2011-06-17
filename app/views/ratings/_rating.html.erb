@@ -7,7 +7,7 @@
     <li>
         <%= link_to( "1", url_for(:controller => "ratings",
             :action => "rate", :lid => asset.id, :rating => 1),
-            :class => 'one-star', :name => '1 star out of 5') %>
+            :id => "rate_js", :class => 'one-star', :name => '1 star out of 5') %>
     </li>
     <li>
         <%= link_to( "2", url_for(:controller => "ratings",

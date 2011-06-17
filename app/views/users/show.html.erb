@@ -2,7 +2,7 @@
 
 <% else %>
    
-    <%= form_for(@lovepost) do |f| %>
+    <%= form_for(@lovepost, :html => {:id => "lovepost" }) do |f| %>
 
             <%= render 'lovepost', :f => f %>
 

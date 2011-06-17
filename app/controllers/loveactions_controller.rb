@@ -10,16 +10,20 @@ class LoveactionsController < ApplicationController
     @partner = User.find(@temp.followed_id)
 
     @loveaction.recip_id = @partner.id
-      
+        
     if @loveaction.save
       redirect_to current_user, :flash => {:success => "Love Action Posted!"}
 
        if current_user.facebook_id.nil?
           # fail gracefully!
+#           raise "no facebook status"
        else
-          Facebook.updateStatus(current_user.facebook_id,
+         if params[:sharepost] == "1"   #checks whether user wants to share on facebook
+#            raise "update facebook status"
+        Facebook.updateStatus(current_user.facebook_id,
                                current_user.facebook_token,
-"I just expressed loved to my partner and tracked it.  We're improving our relationship with Show Me The Love. Learn more! http://lovetank.heroku.com")
+"I just expressed love to my partner.  We're improving our relationship with Show Me The Love. Learn more at http://lovetank.heroku.com")
+         end
        end
 
     else

@@ -16,6 +16,9 @@
 				          <li class="active">
 				            <%= link_to "PROFILE", user_path(current_user) %>
 				          </li>
+                                          <li class="active">
+				            <%= link_to "MY ACCOUNT", edit_user_path(current_user) %>
+				          </li>
 				          <li class="last">
 				            <%= link_to "LOG OUT", signout_path %>
 				          </li>
