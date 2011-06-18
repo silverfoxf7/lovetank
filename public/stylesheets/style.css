@@ -208,10 +208,11 @@ header li {
 }
 
 .button-primary {
-    background: -moz-linear-gradient(100% 100% 90deg, #6A9832, #A1D85A) repeat scroll 0 0 transparent;
-    background-image:-webkit-linear-gradient(100% 100% 90deg, #6A9832, #A1D85A) repeat scroll 0 0 transparent;
-    /*background: -moz-linear-gradient(center top , #E73031 0%, #D82B2C 100%) repeat scroll 0 0 transparent;*/
-    
+	border: none;
+    background: -moz-linear-gradient(100% 100% 90deg, #6A9832, #A1D85A) repeat scroll 0 0 transparent;    
+    background: -webkit-gradient(linear, left top, left bottom, from(#A1D85A), to(#6A9832));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#A1D85A', endColorstr='#6A9832');
+
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.3) inset, 0 5px 7px rgba(0, 0, 0, 0.3);
     color: #FFFFFF !important;
@@ -225,8 +226,16 @@ header li {
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
 }
 
+.small-button {
+    padding: 5px 15px;
+    font-size: 1.3em;
+    float: right;
+}
+
 .button-primary:hover {
     background: -moz-linear-gradient(100% 100% 90deg, #74A439, #AAE162) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear, left top, left bottom, from(#AAE162), to(#74A439));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#AAE162', endColorstr='#74A439');
 }
 
 footer{
@@ -643,6 +652,8 @@ footer ul.span-4{
 
 #form-wrapper form .field {
     background: -moz-linear-gradient(#F3F3F3, #E4E4E4) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear, left top, left bottom, from(#E4E4E4), to(#F3F3F3));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E4E4E4', endColorstr='#F3F3F3');   
     border-bottom: 1px solid #C9C9C9;
     border-top: 1px solid #FFFFFF;
     overflow: hidden;
@@ -660,9 +671,14 @@ footer ul.span-4{
 }
 
 #form-wrapper form .field.header {
-	/*background: -moz-linear-gradient(#287FBC, #024581) repeat scroll 0 0 transparent;*/
+	background: -moz-linear-gradient(#424242, #000) repeat scroll 0 0 transparent;
+	
+
+    background: -webkit-gradient(linear, left top, left bottom, from(#424242), to(#000));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff89d3', endColorstr='#ff2c8e');
+
     /*background:url('../images/brown-bg-noise.png') repeat;*/
-	background: #ff2c8e;
+	/*background: #ff2c8e;*/
 }
 
 #form-wrapper form h1 {
@@ -700,19 +716,21 @@ footer ul.span-4{
     padding: 6px 10px;
     text-shadow: 0 1px 1px #FFFFFF;
     width: 250px;
+    margin: 0;
 }
 
 #form-wrapper form label {
     display: block;
     float: left;
     font-family: "AxelBold","Lucida Grande","Verdana",sans-serif;
-    font-size: 18px;
+    font-size: 1.2em;
     font-weight: normal;
-    line-height: 38px;
+    /*line-height: 38px;*/
     margin: 0;
     padding: 0 30px 0 0;
     text-shadow: 0 1px 0 #FFFFFF;
     width: 130px;
+
 }
 
 inout[type="text"]:focus{

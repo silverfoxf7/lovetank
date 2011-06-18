@@ -1,52 +1,52 @@
 <div id="body_container">
-    <!--project page box starts-->
+
+  <!--project page box starts-->
   <div id="inner_page">
-	
-<div class="span-25 center">
-<a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>">Sign In Using Facebook</a>
-		</div><br /> 
-		
-		<!-- start facebook-button-wrapper -->
-		               <div id="facebook-button-wrapper" class="prepend-6 span-13 center">
-		                       <a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>"><img src="images/facebook-button.png" border="0"></img></a>
+	<!-- start facebook-button-wrapper -->
+    <div id="facebook-button-wrapper" class="prepend-6 span-13 center">
+        <a href="<%= Facebook.getOAuthURL(url_for(:controller => 'facebook', :action => 'confirm', :only_path => false)) %>">
+			<img src="images/facebook-button.png" border="0"></img>
+		</a>
 
-		                       <h2>Or</h2>
-		               </div>
-		               <!-- end facebook-button-wrapper -->
-
-			<div id="form-wrapper" class="prepend-6 span-13">
-
-<%= form_for(:session, :url => sessions_path) do |f| %>
-<!-- whereas "form_for(@user)" allows Rails to infer that the action of the form should be to POST to the URL /users, in the case of sessions we need to indicate both the name of the resource and the appropriate URL -->
-	
-	<div class="header field">
-		<h1>Sign In</h1>
-	</div>
-	
-	<div class="field">
-		<%= f.label :email %>  <br />
-		<%= f.text_field :email %>
-	</div>
-
-	<div class="field">
-		<%= f.label :password %>  <br />
-		<%= f.password_field :password %>
-	</div>
-	
-	<div class="field">
-	     <input type="submit" value="Sign In →" class="green_button">
-	     <input type="hidden" value="" name="next">
-	 </div>
-	<!-- <div class="actions green_button">
-			<%= f.submit "Sign In" %>  
-		</div> -->
-
-<% end %>
-
-<p> New User? <%= link_to "Sign Up Now!", signup_path %> </p>
-
-	</div>
-		<!-- end form-wrapper -->
-
-	</div>
+        <h2>Or</h2>
     </div>
+    <!-- end facebook-button-wrapper -->
+
+	<div id="form-wrapper" class="prepend-6 span-13">
+
+		<%= form_for(:session, :url => sessions_path) do |f| %>
+		<!-- whereas "form_for(@user)" allows Rails to infer that the action of the form should be to POST to the URL /users, 
+		in the case of sessions we need to indicate both the name of the resource and the appropriate URL -->
+	
+			<div class="header field">
+				<h1>Sign in using your username</h1>	
+			</div>
+	
+			<div class="field">
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+			</div>
+
+			<div class="field">
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+			</div>
+	
+			<div class="field">
+			     <input type="submit" value="Sign In →" class="button-primary small-button">
+			     <input type="hidden" value="" name="next">
+			 </div>
+		<% end %>
+		<!-- end form -->
+
+		<p style="margin-left:20px;margin-top:20px;font-size:1.1em;"> New User? <%= link_to "Sign Up Now!", signup_path %> </p>
+
+	</div>
+	<!-- end form-wrapper -->
+
+	</div>
+	<!-- end inner_page -->
+	
+    </div>
+	<!-- end body_container -->
+	
