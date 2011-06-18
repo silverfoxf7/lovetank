@@ -901,3 +901,23 @@ h1.title {
 #facebook-button-wrapper{ 
 	margin-top:10px; 
 }
+
+div#emailBox.gradient {
+    background: none repeat scroll 0 0 #000000;
+}
+
+div#emailBox {
+}
+
+div#emailBox {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    padding-top: 0;
+}
+
+.gradient {
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 transparent;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+}
