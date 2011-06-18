@@ -84,11 +84,12 @@
 						&copy;2011 Show Me The Love Inc. <br/>All Rights Reserved. <a title="Terms of Use" href="/terms">Terms</a> &amp; <a title="Privacy Policy" href="/privacy">Privacy</a>.
 					</div>
 					<div class="prepend-10 span-6 icons">
-						<!-- <a class="rss" href="#">RSS</a> -->
-						<a class="linkedin" href="#">LinkedIn</a>
-						<a class="youtube" href="#">YouTube</a>
-						<a class="facebook" href="#">Facebook</a>
-						<a class="twitter" href="#">Twitter</a>
+						<% if !@app_status ="alpha" %>
+							<a class="linkedin" href="#">LinkedIn</a>
+							<a class="youtube" href="#">YouTube</a>	
+							<a class="facebook" href="#">Facebook</a>
+							<a class="twitter" href="#">Twitter</a>
+						<% end %>
 					</div>
 				</div>
 			</div>
