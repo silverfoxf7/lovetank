@@ -1,6 +1,8 @@
 <!--footer starts-->
 <footer>
 	<div class="container">
+		<% if !@app_status ="alpha" %>
+		<!-- hiding the detailed footer in alpha stage -->
 				<div class="span-25">
 					<ul class="span-2">
 						<li>
@@ -75,6 +77,8 @@
 						</li>
 					</ul>
 				</div>
+				<% end %>
+				
 				<div class="span-25" style="margin-left:25px;margin-top:30px;">
 					<div class="span-8">
 						&copy;2011 Show Me The Love Inc. <br/>All Rights Reserved. <a title="Terms of Use" href="/terms">Terms</a> &amp; <a title="Privacy Policy" href="/privacy">Privacy</a>.
