@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate, :except => [:show, :new, :create]
   # used to effectuate a redirect to signin if trying to access unauth pages
   # but need an options hash to limit only some pages
-  before_filter :correct_user, :only => [:edit, :update]
+  before_filter :correct_user, :only => [:show, :edit, :update]
   before_filter :admin_user,   :only => :destroy
   
   def index
@@ -104,7 +104,9 @@ class UsersController < ApplicationController
   
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
+      if !current_user?(@user)
+        redirect_to root_path, :flash => { :error => "You're not authorized to view that page." }
+      end
       # unless @user == current_user is very common.  we'll define as method current_user?(@user)
     end
     

@@ -39,9 +39,14 @@
   <body id="main">
 		<%= render 'layouts/header' %>
 
+                  <% flash.each do |key, value| %>
+                    <div class="flash <%= key %>"><%= value %></div>
+                  <% end %>
   
 	<div id="dashboard-wrapper">
 		<div class="container">
+
+                  
 			<%= yield %>
 		</div> <!-- end container -->
 	</div> <!-- end dashboard_wrapper -->

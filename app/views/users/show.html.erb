@@ -1,5 +1,7 @@
 <% if @temp.nil? %>
-
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
 <% else %>
    
     <%= form_for(@lovepost, :html => {:id => "lovepost" }) do |f| %>
