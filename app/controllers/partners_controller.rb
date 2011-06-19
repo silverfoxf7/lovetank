@@ -1,6 +1,6 @@
 class PartnersController < ApplicationController
 
-  before_filter :authenticate, :except => [:show, :new, :create]
+  before_filter :authenticate 
   # used to effectuate a redirect to signin if trying to access unauth pages
   # but need an options hash to limit only some pages
   before_filter :correct_user, :only => [:edit, :update]
@@ -56,11 +56,6 @@ class PartnersController < ApplicationController
   
 #---------------------------------
   private
-    # def authenticate
-    #   deny_access unless signed_in?
-    #   # deny_access is located in the sessions_helper for refactoring purposes
-    # end
-    
     # After Chapter 11 we moved this authenticate method to the Sessions helper so it could be used
     # by the microposts_controller.rb
   
