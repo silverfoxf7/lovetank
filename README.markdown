@@ -2,6 +2,7 @@
 Your partner rates what you do for them, giving you insight into what's really meaningful to them.  
 Show the love. Have a kick-ass relationship.  
 
+www.ShowMeTheLove.co  
 http://www.facebook.com/ShowMeTheLove.ImproveYourRelationship  
 
 Here's the working functionality:  
@@ -13,6 +14,6 @@ Here's the working functionality:
 6. sign-in as your partner (the email addy you entered, pw = "foobar")  
 7. the partner can rate the love-stream.   
 
-Known bugs:
-1. Login with Facebook does not work
-2. You must refresh the page before you can click on "Add a Relationship" 
+Known bugs:  
+1. Login with Facebook does not work  
+2. You must refresh the page before you can click on "Add a Relationship"   
